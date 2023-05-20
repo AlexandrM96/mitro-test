@@ -7,10 +7,10 @@ const fetchPosts = () => axios.get(url);
 
 function* fetchPostsWorker():any {
 const data = yield  call(fetchPosts);
-const json = yield call(()=> new Promise(response => response(data.json())))
+const json = yield call(()=> new Promise(response => response(data.data)))
     yield  put(setPosts(json))
 }
 
 export function* postsWatcher() {
-takeEvery(FETCH_POSTS, fetchPostsWorker);
+yield takeEvery(FETCH_POSTS, fetchPostsWorker);
 }

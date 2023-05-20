@@ -1,4 +1,4 @@
-import {all} from "axios";
+import {all} from "redux-saga/effects";
 import {postsWatcher} from "./postsSaga"
 
 export function* rootWatcher() {

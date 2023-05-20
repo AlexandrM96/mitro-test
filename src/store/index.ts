@@ -1,6 +1,7 @@
 import  createSagaMiddleWare from "redux-saga";
-import {applyMiddleware, combineReducers, createStore} from "@reduxjs/toolkit";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import postReducer from "./postReducer";
+import {rootWatcher} from "../saga";
 
 const sagaMiddleware = createSagaMiddleWare();
 
