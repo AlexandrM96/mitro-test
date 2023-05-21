@@ -9,6 +9,7 @@ export const  FETCH_POSTS = "FETCH_POSTS";
 export  default function postReducer(state = defaultState,action:any) {
     switch (action.type) {
         case SET_POSTS:
+            console.log(action)
             return {...state, posts:action.payload};
     }
     return state;

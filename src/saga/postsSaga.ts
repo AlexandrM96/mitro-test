@@ -6,8 +6,8 @@ const url:string = 'https://jsonplaceholder.typicode.com/posts';
 const fetchPosts = () => axios.get(url);
 
 function* fetchPostsWorker():any {
-const data = yield  call(fetchPosts);
-const json = yield call(()=> new Promise(response => response(data.data)))
+    const data = yield  call(fetchPosts);
+    const json = yield call(()=> new Promise(response => response(data.data)))
     yield  put(setPosts(json))
 }
 
