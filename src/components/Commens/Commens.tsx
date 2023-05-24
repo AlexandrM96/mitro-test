@@ -14,7 +14,7 @@ export  default function Comments(props:any) {
         state? setState(false) : setState(true);
         dispatch(fetchComments(props.id));
     }
-
+console.log(props.id)
     return (
             <div>
                 <button onClick={()=> addComments()} className='btn btn-primary'>
@@ -23,7 +23,7 @@ export  default function Comments(props:any) {
                 <div className={state ? 'd-block ' : 'd-none'}>
                     {<div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
-                    </div> && comments.map((comment:any) =>
+                    </div> && comments.filter((comment:any)=> comment.postId === props.id ).map((comment:any) =>
                         <div key={comment.id} className='d-flex mb-3 bg-p'>
                             <div>
                                 <h4>{comment.email}:</h4>

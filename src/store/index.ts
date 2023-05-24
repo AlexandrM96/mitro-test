@@ -3,13 +3,15 @@ import {applyMiddleware, combineReducers, createStore} from "redux";
 import postReducer from "./postReducer";
 import commentsReducer from "./commentsReducer";
 import {rootWatcher} from "../saga";
+import userReducer from "./userReducer";
 
 
 const sagaMiddleware = createSagaMiddleWare();
 
 const rootReducer = combineReducers( {
     postReducer,
-    commentsReducer
+    commentsReducer,
+    userReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));

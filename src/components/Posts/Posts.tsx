@@ -3,6 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import {fetchPosts} from "../../store/postReducer";
 import {useEffect} from "react";
 import Comments from "../Commens/Commens";
+import {fetchUser} from "../../store/userReducer";
 
 export  default function Posts() {
 
@@ -28,9 +29,11 @@ export  default function Posts() {
                <div key={post.id} className='d-flex mb-3 bg-light'>
                    <div>
                        <div className='image-block me-2'>
-                           <picture>
-                               <img className='w-100' src='/images/user2.png' alt='user2'/>
-                           </picture>
+                     <div onClick={()=>  dispatch(fetchUser(post.userId))}>
+                         <picture>
+                             <img className='w-100' src='/images/user2.png' alt='user2'/>
+                         </picture>
+                     </div>
                        </div>
                    </div>
                    <div>
